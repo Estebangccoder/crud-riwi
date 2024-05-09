@@ -27,8 +27,10 @@ function withForOf() {
 }
 
 
-
-export function withForEach(coders,tbody) {
+//withForEach 
+export function index(coders,tbody) {
+    tbody.innerHTML = ``
+    
     coders.forEach(coder => {
 
         tbody.innerHTML += `
@@ -69,4 +71,15 @@ function withFor() {
             </tr>
         `
     }
+}
+
+export function create(nameForm, lastNameForm, emailForm, coders) {
+    const newCoder={
+        id:Date.now(),
+        name: nameForm.value,
+        lastName: lastNameForm.value,
+        email: emailForm.value
+    }
+
+    coders.push(newCoder) //agrega el arreglo newcoder a la base de datos
 }
