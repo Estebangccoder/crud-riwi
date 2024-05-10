@@ -6,20 +6,21 @@ import * as bootstrap from 'bootstrap'
 
 // se importa el arreglo desde database
 import {coders} from '../../public/data/database.js'
-import {index, create} from './operaciones'
-import { alertSmallSuccess } from './alerts'
+import {index, create, deleteId} from './operaciones.js'
+import { alertSmallSuccess } from './alerts.js'
+
 
 
 
 
 const tbody=document.querySelector('tbody')
-
+const table=document.querySelector('table')
 
 const nameForm =document.querySelector("#name")
 const lastNameForm =document.querySelector("#last-name")
 const emailForm =document.querySelector("#email")
 const form=document.querySelector("form")
-
+index(coders,tbody)
 form.addEventListener("submit", function (event) { //siempre se debe colocar event o e, mejor event
  
     create(nameForm, lastNameForm, emailForm, coders)
@@ -36,3 +37,23 @@ form.addEventListener("submit", function (event) { //siempre se debe colocar eve
 
     event.preventDefault()
 })
+
+
+table.addEventListener("click", function (event) {
+    // if (event.target.classlist.contains("btn-danger")) {
+    //     alertSmallSuccess("Le diste clikck al boton")
+    // }else{
+    
+    
+    //     alertSmallSuccess("Le diste click a la tabla")
+    // }
+
+   
+    deleteId(coders, event)
+   
+      
+    alertSmallSuccess("Coder deleted")
+    index(coders,tbody)
+
+})
+
