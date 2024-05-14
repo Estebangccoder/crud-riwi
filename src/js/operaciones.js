@@ -96,14 +96,13 @@ export function create(nameForm, lastNameForm, emailForm, coders) {
 }
 
 
-export function deleteId(coders, event){
-    if (event.target.classList.contains("btn-danger")) {
-        const idParaEliminar = event.target.getAttribute("data-id")
-        // const idToDelete = event.target.parentElement.parentElement.firstElementChild.textContent otra forma de obtener la imfocrmacion del id
-        // console.log(idToDelete) 
+export function deleteId(coders, idParaEliminar) {
+    
+ 
+
     coders.forEach((coder, index) => {
         if (coder.id == idParaEliminar){
             coders.splice(index, 1)
         }
 })
-}}
+}
